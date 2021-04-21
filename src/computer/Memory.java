@@ -1,14 +1,14 @@
 package computer;
 
-public abstract class Memory<E> {
+public abstract class Memory {
 	
-	protected Word<E>[] memory;
+	protected Word[] memory;
 	
-	public Word<E> read(int index) {
+	public Word read(int index) {
 		return memory[index];
 	}
 	
-	public void write(int index, Word<E> word) {
+	public void write(int index, Word word) {
 		memory[index] = word;
 	}
 	

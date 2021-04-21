@@ -1,6 +1,5 @@
 package instruction;
 
-import computer.Adress;
 import computer.Memory;
 import computer.Operand;
 import computer.ProgramCounter;

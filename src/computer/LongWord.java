@@ -1,31 +1,58 @@
 package computer;
 
-public class LongWord extends Word<Long> {
-	
-	
+public class LongWord extends Word {
+
 	public LongWord(long value) {
 		this.value = value;
 	}
 
 	@Override
-	public Word<Long> getWord(Memory memory) {
+	public boolean isEqual(Word word) {
+	LongWord other;
+		
+		if (word instanceof LongWord) {
+			 other = (LongWord) word;			
+		} else {
+			throw new ClassCastException();
+		}
+		
+		return this.value == other.value;
+	}
+
+	@Override
+	public Word mul(Word word) {
+	LongWord other;
+		
+		if (word instanceof LongWord) {
+			 other = (LongWord) word;			
+		} else {
+			throw new ClassCastException();
+		}
+		
+		Word result = new LongWord((long)this.value * (long)other.value);
+		
+		return result;
+	}
+
+	@Override
+	public Word add(Word word) {
+		LongWord other;
+		
+		if (word instanceof LongWord) {
+			 other = (LongWord) word;			
+		} else {
+			throw new ClassCastException();
+		}
+		
+		Word result = new LongWord((long)this.value + (long)other.value);
+		return result;
+	}
+
+	
+	@Override
+	public Word getWord(Memory memory) {
 		return this;
 	}
-
-	@Override
-	public Word<Long> mul(Word<Long> word) {
-		return new LongWord(this.value * word.value);
-	}
-
-	@Override
-	public Word<Long> add(Word<Long> word) {
-		return new LongWord(this.value + word.value);
-	}
-
-	@Override
-	public boolean isEqual(Word<Long> word) {
-		
-		return this.value == word.value;
-	}
+	
 
 }
